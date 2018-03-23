@@ -1,0 +1,115 @@
+\ProvidesPackage{beamerthemeNCAR}
+
+%%% CHANGE COLOR SPACE BEFORE PRINTING
+\selectcolormodel{cmyk}
+\selectcolormodel{rgb}
+
+\mode<presentation>
+
+%%%  CUSTOM COLORS - see https://wiki.ucar.edu/download/attachments/52004557/AtmosThemeColorPalette.jpg
+
+\definecolor{NCAR_dark_blue}{RGB}{36,72,125} % UCAR home page header top - 24487D
+\definecolor{NCAR_med_blue}{RGB}{32,89,141} % EOL home page header top - 20598D
+\definecolor{NCAR_light_blue}{RGB}{86,129,148} % 568194
+\definecolor{NCAR_very_light_blue}{RGB}{169,202,222} % A9CADE
+\definecolor{NCAR_red}{RGB}{168,38,38} % AtmosNews - A82626
+\definecolor{NCAR_orange}{RGB}{207,136,27} % CF881B
+
+\definecolor{colorscheme3}{RGB}{178,223,138} %
+\definecolor{colorscheme4}{RGB}{51,160,44} %
+
+
+%%% HEADLINE COLORS AND FONTS
+
+\setbeamercolor{headline}{bg=white}
+\setbeamercolor{title in headline}{fg=NCAR_dark_blue}
+\setbeamercolor{author in headline}{fg=NCAR_med_blue}
+\setbeamercolor{institute in headline}{fg=NCAR_light_blue}
+\setbeamercolor{item}{fg=NCAR_orange} %set color of bullet in lists
+
+% block titles
+\setbeamercolor{block title}{fg=white,bg=NCAR_med_blue}
+\setbeamerfont{block title}{size=\large,series=\sf}
+
+% body colors and fonts
+%\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamerfont{block body}{size=\normalsize,series=\rm}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=NCAR_med_blue}
+\setbeamerfont{footline}{size=\normalsize,series=\bf}
+
+% itemize and no navigation
+\setbeamertemplate{itemize items}[triangle]
+
+
+%%% DEFINE HEADER OF THE POSTER - WITH LOGOS
+
+%\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge
+
+\setbeamertemplate{headline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\textwidth]{headline}
+
+    \begin{columns}
+      \begin{column}{.80\textwidth}
+         \vskip4ex
+        \usebeamercolor{title in headline}{\Huge \color{fg}{{\inserttitle}}\\[1ex]}
+        \usebeamercolor{author in headline}{\Large \color{fg}{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\normalsize \color{fg}{\insertinstitute}\\[1ex]}
+      \end{column}
+
+
+      \begin{column}{.16\textwidth}
+        \begin{flushright}
+        \vskip2ex
+
+\includegraphics[height=4cm]{logos/ncar-logo.pdf}
+            \end{flushright}
+  \end{column}
+
+    \end{columns}
+  \end{beamercolorbox}
+}
+
+
+%%% DEFINE HEADER OF EACH BLOCK
+
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}
+
+  \vspace{.8cm} % add some space below the section title
+
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+
+
+%%% DEFINE FOOTER
+
+\setbeamertemplate{footline}{
+ \begin{beamercolorbox}[ht=4ex,leftskip=2cm,rightskip=2cm]{footline}
+
+ \centering  {Correspondence: Ethan Gutmann $\mid$ Hydrometeorology Applications Program $\mid$ Research Applications Laboratory $\mid$ National Center for Atmospheric Research $\mid$ Boulder, CO, USA $\mid$ gutmann@ucar.edu}
+    \vskip1ex
+  \end{beamercolorbox}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%bibliography and caption colors
+\setbeamercolor{bibliography entry author}{fg=black,bg=}
+\setbeamercolor{bibliography entry location}{fg=black,bg=}
+
+\setbeamercolor{caption name}{fg=black,bg=}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
